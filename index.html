@@ -48,7 +48,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 
 .phone{width:390px;max-width:100%;height:844px;border-radius:48px;overflow:hidden;position:relative;box-shadow:0 0 0 10px #141416,0 0 0 11px #2C2C31,0 40px 80px rgba(0,0,0,.35)}
 .app{position:relative;height:100%;background:var(--bg);color:var(--ink);overflow:hidden;transition:background .3s}
-.silk{position:absolute;inset:0 0 auto 0;height:620px;pointer-events:none;opacity:var(--silk);
+.silk{position:absolute;inset:0 0 auto 0;width:100%;height:620px;pointer-events:none;opacity:var(--silk);
   -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
 .status{position:absolute;top:0;left:0;right:0;height:50px;z-index:70;pointer-events:none;display:flex;justify-content:space-between;align-items:flex-end;padding:0 32px 6px;font-weight:600;font-size:15px;color:var(--ink)}
 .status .ind{display:flex;gap:6px;align-items:center}
@@ -5526,7 +5526,7 @@ function showSkel(el,ms){const ph=el.querySelector('.ph');if(!ph)return;const ov
   el.appendChild(ov);if(ms)setTimeout(()=>{ov.classList.add('out');setTimeout(()=>ov.remove(),220)},ms)}
 
 /* ---------- v6.6 SOC 2：安全记录 / 安全提醒 / 账户保护 / 隐私与同意 ---------- */
-const VER='v8.5',TERMS_V='2026.11',TERMS_DATE='2026年11月1日';
+const VER='v8.6',TERMS_V='2026.11',TERMS_DATE='2026年11月1日';
 const CUR_DEV='iPhone 15 Pro';
 const PW_COMMON=['passw0rd','p@ssw0rd','p@ssword','password@123','password123','aa123456','aa123456!','abc@1234','abc123!@#','admin@123','admin1234','qwer1234','qwe123!@#','zxcv1234','1qaz2wsx','1qaz@wsx','qwerty1!','welcome1!','iloveyou!','a1234567','a12345678','abcd@1234','password','password1','12345678','123456789','1234567890','qwerty123','abc12345','abcd1234','11111111','88888888','iloveyou1','inen2026','admin123','welcome1','qwertyuiop'];
 const PW_HIST=['Inen2026','Liyang2025!','Welcome2024'];
@@ -6730,7 +6730,7 @@ function setLang(l){
   i18nWatch();
 }
 document.querySelectorAll('#langSeg button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
-{const tb=v=>document.body.classList.toggle('tb-off',v);if(window.innerWidth<=600)tb(true);document.getElementById('tbHide').onclick=()=>tb(true);document.getElementById('tbOpen').onclick=()=>tb(false)}
+{const tb=v=>document.body.classList.toggle('tb-off',v);if(window.innerWidth<=600)tb(true);{const mq=matchMedia('(max-width:600px)');(mq.addEventListener?mq.addEventListener('change',e=>tb(e.matches)):mq.addListener(e=>tb(e.matches)))}document.getElementById('tbHide').onclick=()=>tb(true);document.getElementById('tbOpen').onclick=()=>tb(false)}
 function setShape(v){app.dataset.shape=v;document.querySelectorAll('#shapeSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===v))}
 setShape('sq');document.querySelectorAll('#shapeSeg button').forEach(b=>b.onclick=()=>setShape(b.dataset.s));
 setLang(LANG);
